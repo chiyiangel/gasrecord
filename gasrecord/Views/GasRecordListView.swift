@@ -88,7 +88,7 @@ struct GasRecordListView: View {
 }
 
 struct GasStatisticsView: View {
-    let viewModel: GasRecordViewModel
+    @ObservedObject var viewModel: GasRecordViewModel
     
     var body: some View {
         VStack(spacing: 16) {
@@ -130,6 +130,7 @@ struct GasStatisticsView: View {
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
         .padding(.horizontal)
+        .id(viewModel.gasRecords.count) // 添加这一行，使记录数变化时视图强制刷新
     }
 }
 
