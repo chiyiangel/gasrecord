@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = GasRecordViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            NavigationStack {
+                AddFuelButtonView(viewModel: viewModel)
+            }
+            .tabItem {
+                Label("加油", systemImage: "fuelpump")
+            }
+            
+            GasRecordListView(viewModel: viewModel)
+            .tabItem {
+                Label("记录", systemImage: "list.bullet")
+            }
         }
-        .padding()
+        .tint(.blue)
     }
 }
 
