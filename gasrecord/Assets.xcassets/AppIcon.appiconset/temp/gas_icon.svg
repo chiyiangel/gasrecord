@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#4a90e2"/>
+  <circle cx="512" cy="512" r="400" fill="#ffffff"/>
+  <path d="M400,350 L550,350 L550,650 L450,650 L450,380 L400,380 Z" fill="#4a90e2"/>
+  <path d="M600,450 L650,450 L650,550 C650,575 675,600 700,600 C725,600 750,575 750,550 L750,400 C750,375 725,350 700,350 L600,350 Z" fill="#4a90e2"/>
+  <rect x="400" y="650" width="150" height="50" fill="#4a90e2"/>
+  <path d="M650,450 L700,450 L700,550 L650,550 Z" fill="#4a90e2"/>
+  <text x="512" y="800" font-family="Arial" font-size="100" text-anchor="middle" fill="#4a90e2">GAS</text>
+</svg>
