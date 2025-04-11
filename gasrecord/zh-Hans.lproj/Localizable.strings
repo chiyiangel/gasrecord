@@ -1,0 +1,52 @@
+/* Tab Items */
+"Add_Fuel" = "加油";
+"Records" = "记录";
+
+/* Empty State */
+"No_Fuel_Records" = "暂无加油记录";
+"Add_Records_Instruction" = "点击\"加油\"标签页添加记录";
+
+/* Navigation Titles */
+"Fuel_Records" = "加油记录";
+"Fuel_Statistics" = "油耗统计与加油汇总";
+
+/* Statistics */
+"Average_Fuel_Efficiency" = "平均油耗";
+"Total_Fuel_Amount" = "总加油量";
+"Total_Cost" = "总花费";
+"Average_Fuel_Price" = "平均油价";
+
+/* Button */
+"Tap_To_Add_Fuel" = "点击加油";
+
+/* Add Record Screen */
+"Record_Fuel" = "记录加油";
+"Basic_Info" = "基本信息";
+"Fuel_Date" = "加油日期";
+"Odometer" = "行驶里程";
+"Kilometers" = "公里数";
+"Fuel_Info" = "加油信息";
+"Fuel_Amount" = "加油量";
+"Liters" = "升";
+"Price" = "单价";
+"Price_Per_Liter" = "元/升";
+"Total_Cost" = "总花费";
+"Yuan" = "元";
+"Notes" = "备注";
+"Add_Fuel_Record" = "添加加油记录";
+"Cancel" = "取消";
+"Save" = "保存";
+"Done" = "完成";
+"Input_Error" = "输入错误";
+"OK" = "确定";
+"Ensure_Values_Correct" = "请确保所有数值都填写正确";
+
+/* Record Detail Screen */
+"Fuel_Record" = "加油记录";
+"Fuel_Details" = "加油详情";
+"Fuel_Amount" = "加油量";
+"Price" = "单价";
+"Total_Cost" = "总花费";
+"Odometer" = "里程表";
+"Notes" = "备注";
+"Fuel_Record_Details" = "加油记录详情";

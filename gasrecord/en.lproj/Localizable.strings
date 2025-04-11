@@ -1,0 +1,52 @@
+/* Tab Items */
+"Add_Fuel" = "Add Fuel";
+"Records" = "Records";
+
+/* Empty State */
+"No_Fuel_Records" = "No fuel records";
+"Add_Records_Instruction" = "Click \"Add Fuel\" tab to add records";
+
+/* Navigation Titles */
+"Fuel_Records" = "Fuel Records";
+"Fuel_Statistics" = "Fuel Statistics";
+
+/* Statistics */
+"Average_Fuel_Efficiency" = "Average fuel efficiency";
+"Total_Fuel_Amount" = "Total fuel amount";
+"Total_Cost" = "Total cost";
+"Average_Fuel_Price" = "Average fuel price";
+
+/* Button */
+"Tap_To_Add_Fuel" = "Tap to add fuel";
+
+/* Add Record Screen */
+"Record_Fuel" = "Record Fuel";
+"Basic_Info" = "Basic Info";
+"Fuel_Date" = "Fuel Date";
+"Odometer" = "Odometer";
+"Kilometers" = "Kilometers";
+"Fuel_Info" = "Fuel Info";
+"Fuel_Amount" = "Fuel Amount";
+"Liters" = "Liters";
+"Price" = "Price";
+"Price_Per_Liter" = "¥/L";
+"Total_Cost" = "Total Cost";
+"Yuan" = "¥";
+"Notes" = "Notes";
+"Add_Fuel_Record" = "Add Fuel Record";
+"Cancel" = "Cancel";
+"Save" = "Save";
+"Done" = "Done";
+"Input_Error" = "Input Error";
+"OK" = "OK";
+"Ensure_Values_Correct" = "Please ensure all values are correct";
+
+/* Record Detail Screen */
+"Fuel_Record" = "Fuel Record";
+"Fuel_Details" = "Fuel Details";
+"Fuel_Amount" = "Fuel Amount";
+"Price" = "Price";
+"Total_Cost" = "Total Cost";
+"Odometer" = "Odometer";
+"Notes" = "Notes";
+"Fuel_Record_Details" = "Fuel Record Details";

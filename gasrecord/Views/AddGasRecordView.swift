@@ -50,7 +50,7 @@ struct AddGasRecordView: View {
                                     .foregroundColor(Color("FuelBlue"))
                             }
                             
-                            Text("记录加油")
+                            Text(String(localized: "Record_Fuel"))
                                 .font(.headline)
                                 .foregroundColor(Color("FuelBlue"))
                                 .padding(.top, 8)
@@ -61,20 +61,20 @@ struct AddGasRecordView: View {
                     .listRowBackground(Color.clear)
                 }
                 
-                Section(header: Text("基本信息")) {
-                    DatePicker("加油日期", selection: $date, displayedComponents: [.date, .hourAndMinute])
+                Section(header: Text(String(localized: "Basic_Info"))) {
+                    DatePicker(String(localized: "Fuel_Date"), selection: $date, displayedComponents: [.date, .hourAndMinute])
                     
-                    LabeledContent("行驶里程") {
-                        TextField("公里数", text: $odometer)
+                    LabeledContent(String(localized: "Odometer")) {
+                        TextField(String(localized: "Kilometers"), text: $odometer)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
                             .focused($focusedField, equals: .odometer)
                     }
                 }
                 
-                Section(header: Text("加油信息")) {
-                    LabeledContent("加油量") {
-                        TextField("升", text: $gallons)
+                Section(header: Text(String(localized: "Fuel_Info"))) {
+                    LabeledContent(String(localized: "Fuel_Amount")) {
+                        TextField(String(localized: "Liters"), text: $gallons)
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
                             .focused($focusedField, equals: .gallons)
@@ -83,8 +83,8 @@ struct AddGasRecordView: View {
                             }
                     }
                     
-                    LabeledContent("单价") {
-                        TextField("元/升", text: $pricePerGallon)
+                    LabeledContent(String(localized: "Price")) {
+                        TextField(String(localized: "Price_Per_Liter"), text: $pricePerGallon)
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
                             .focused($focusedField, equals: .price)
@@ -93,44 +93,44 @@ struct AddGasRecordView: View {
                             }
                     }
                     
-                    LabeledContent("总花费") {
-                        TextField("元", text: $totalCost)
+                    LabeledContent(String(localized: "Total_Cost")) {
+                        TextField(String(localized: "Yuan"), text: $totalCost)
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
                             .focused($focusedField, equals: .total)
                     }
                 }
                 
-                Section(header: Text("备注")) {
+                Section(header: Text(String(localized: "Notes"))) {
                     TextEditor(text: $notes)
                         .frame(minHeight: 100)
                         .focused($focusedField, equals: .notes)
                 }
             }
-            .navigationTitle("添加加油记录")
+            .navigationTitle(String(localized: "Add_Fuel_Record"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("取消") {
+                    Button(String(localized: "Cancel")) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("保存") {
+                    Button(String(localized: "Save")) {
                         saveRecord()
                     }
                     .disabled(!isFormValid)
                 }
                 
                 ToolbarItem(placement: .keyboard) {
-                    Button("完成") {
+                    Button(String(localized: "Done")) {
                         focusedField = nil
                     }
                 }
             }
-            .alert("输入错误", isPresented: $showingAlert) {
-                Button("确定", role: .cancel) {}
+            .alert(String(localized: "Input_Error"), isPresented: $showingAlert) {
+                Button(String(localized: "OK"), role: .cancel) {}
             } message: {
                 Text(alertMessage)
             }
@@ -155,7 +155,7 @@ struct AddGasRecordView: View {
               let priceDouble = Double(pricePerGallon.replacingOccurrences(of: ",", with: ".")),
               let totalDouble = Double(totalCost.replacingOccurrences(of: ",", with: ".")),
               let odometerInt = Int(odometer) else {
-            alertMessage = "请确保所有数值都填写正确"
+            alertMessage = String(localized: "Ensure_Values_Correct")
             showingAlert = true
             return
         }

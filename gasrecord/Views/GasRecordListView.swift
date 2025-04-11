@@ -28,11 +28,11 @@ struct GasRecordListView: View {
                                 .foregroundColor(.gray.opacity(0.5))
                                 .padding()
                             
-                            Text("暂无加油记录")
+                            Text(String(localized: "No_Fuel_Records"))
                                 .font(.headline)
                                 .foregroundColor(.gray)
                             
-                            Text("点击\"加油\"标签页添加记录")
+                            Text(String(localized: "Add_Records_Instruction"))
                                 .font(.subheadline)
                                 .foregroundColor(.gray.opacity(0.8))
                                 .padding(.top, 4)
@@ -77,7 +77,7 @@ struct GasRecordListView: View {
                     }
                 }
             }
-            .navigationTitle("加油记录")
+            .navigationTitle(String(localized: "Fuel_Records"))
             .toolbar {
                 if !viewModel.gasRecords.isEmpty {
                     EditButton()
@@ -92,19 +92,19 @@ struct GasStatisticsView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            Text("油耗统计与加油汇总")
+                Text(String(localized: "Fuel_Statistics"))
                 .font(.headline)
                 .padding(.top, 12)
             
             HStack(spacing: 20) {
                 StatisticItemView(
-                    title: "平均油耗",
+                    title: String(localized: "Average_Fuel_Efficiency"),
                     value: viewModel.formattedAverageFuelEfficiency,
                     iconName: "gauge.with.dots.needle.33percent"
                 )
                 
                 StatisticItemView(
-                    title: "总加油量",
+                    title: String(localized: "Total_Fuel_Amount"),
                     value: viewModel.formattedTotalGallons,
                     iconName: "drop.fill"
                 )
@@ -112,13 +112,13 @@ struct GasStatisticsView: View {
             
             HStack(spacing: 20) {
                 StatisticItemView(
-                    title: "总花费",
+                    title: String(localized: "Total_Cost"),
                     value: viewModel.formattedTotalCost,
                     iconName: "dollarsign.circle.fill"
                 )
                 
                 StatisticItemView(
-                    title: "平均油价",
+                    title: String(localized: "Average_Fuel_Price"),
                     value: viewModel.formattedAveragePricePerGallon,
                     iconName: "fuelpump.fill"
                 )

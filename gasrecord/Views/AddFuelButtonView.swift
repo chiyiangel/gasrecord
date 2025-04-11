@@ -33,7 +33,7 @@ struct AddFuelButtonView: View {
                             .frame(width: 80, height: 80)
                             .foregroundColor(Color("FuelBlue"))
                         
-                        Text("点击加油")
+                        Text(String(localized: "Tap_To_Add_Fuel"))
                             .font(.headline)
                             .foregroundColor(Color("FuelBlue"))
                     }
@@ -47,7 +47,7 @@ struct AddFuelButtonView: View {
             
             Spacer()
         }
-        .navigationTitle("加油记录")
+        .navigationTitle(String(localized: "Fuel_Records"))
     }
 }
 

@@ -20,7 +20,7 @@ struct GasRecordDetailView: View {
                             .font(.title2)
                             .fontWeight(.bold)
                         
-                        Text("加油记录")
+                        Text(String(localized: "Fuel_Record"))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -44,20 +44,20 @@ struct GasRecordDetailView: View {
                 
                 // Fuel details card
                 VStack(spacing: 15) {
-                    Text("加油详情")
+                    Text(String(localized: "Fuel_Details"))
                         .font(.headline)
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Divider()
                     
-                    DetailRow(title: "加油量", value: String(format: "%.2f L", record.gallons), icon: "drop.fill")
+                    DetailRow(title: String(localized: "Fuel_Amount"), value: String(format: "%.2f L", record.gallons), icon: "drop.fill")
                     
-                    DetailRow(title: "单价", value: record.formattedPricePerGallon, icon: "yensign.circle.fill")
+                    DetailRow(title: String(localized: "Price"), value: record.formattedPricePerGallon, icon: "yensign.circle.fill")
                     
-                    DetailRow(title: "总花费", value: record.formattedTotalCost, icon: "creditcard.fill")
+                    DetailRow(title: String(localized: "Total_Cost"), value: record.formattedTotalCost, icon: "creditcard.fill")
                     
-                    DetailRow(title: "里程表", value: "\(record.odometer) km", icon: "speedometer")
+                    DetailRow(title: String(localized: "Odometer"), value: "\(record.odometer) km", icon: "speedometer")
                 }
                 .padding()
                 .background(Color(.systemBackground))
@@ -67,7 +67,7 @@ struct GasRecordDetailView: View {
                 // Notes card if available
                 if !record.notes.isEmpty {
                     VStack(spacing: 15) {
-                        Text("备注")
+                        Text(String(localized: "Notes"))
                             .font(.headline)
                             .foregroundColor(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -86,7 +86,7 @@ struct GasRecordDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("加油记录详情")
+        .navigationTitle(String(localized: "Fuel_Record_Details"))
         .navigationBarTitleDisplayMode(.inline)
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
     }

@@ -16,12 +16,12 @@ struct ContentView: View {
                 AddFuelButtonView(viewModel: viewModel)
             }
             .tabItem {
-                Label("加油", systemImage: "fuelpump")
+                Label(String(localized: "Add_Fuel"), systemImage: "fuelpump")
             }
             
             GasRecordListView(viewModel: viewModel)
             .tabItem {
-                Label("记录", systemImage: "list.bullet")
+                Label(String(localized: "Records"), systemImage: "list.bullet")
             }
         }
         .tint(.blue)
