@@ -1,6 +1,7 @@
 /* Tab Items */
 "Add_Fuel" = "加油";
 "Records" = "记录";
+"Vehicles" = "车辆";
 
 /* Empty State */
 "No_Fuel_Records" = "暂无加油记录";
@@ -50,3 +51,11 @@
 "Odometer" = "里程表";
 "Notes" = "备注";
 "Fuel_Record_Details" = "加油记录详情";
+
+/* Vehicle Management */
+"Vehicle" = "车辆";
+"Vehicle_Name" = "车辆名称";
+"Vehicle_Info" = "车辆信息";
+"All_Vehicles" = "全部车辆";
+"Select_Vehicle" = "选择车辆";
+"Unknown_Vehicle" = "未知车辆";

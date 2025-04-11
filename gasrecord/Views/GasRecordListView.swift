@@ -9,17 +9,30 @@ import SwiftUI
 
 struct GasRecordListView: View {
     @ObservedObject var viewModel: GasRecordViewModel
+    @State private var showVehicleSheet = false
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                if !viewModel.gasRecords.isEmpty {
+                // 显示当前选择的车辆
+                VStack(spacing: 8) {
+                    Text("当前查看的车辆")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    
+                    VehiclePickerView(viewModel: viewModel)
+                        .padding(.horizontal)
+                }
+                .padding(.top, 12)
+                .padding(.bottom, 4)
+                
+                if !viewModel.filteredRecords.isEmpty {
                     GasStatisticsView(viewModel: viewModel)
                         .padding(.top, 8)
                 }
                 
                 ZStack {
-                    if viewModel.gasRecords.isEmpty {
+                    if viewModel.filteredRecords.isEmpty {
                         VStack {
                             Image(systemName: "fuelpump.slash")
                                 .resizable()
@@ -39,8 +52,8 @@ struct GasRecordListView: View {
                         }
                     } else {
                         List {
-                            ForEach(viewModel.gasRecords) { record in
-                                NavigationLink(destination: GasRecordDetailView(record: record)) {
+                            ForEach(viewModel.filteredRecords) { record in
+                                NavigationLink(destination: GasRecordDetailView(record: record, viewModel: viewModel)) {
                                     HStack(spacing: 15) {
                                         ZStack {
                                             Circle()
@@ -71,7 +84,13 @@ struct GasRecordListView: View {
                                 }
                             }
                             .onDelete { indexSet in
-                                viewModel.deleteRecord(at: indexSet)
+                                // 需要转换索引集合，因为filteredRecords和gasRecords的索引可能不同
+                                let recordsToDelete = indexSet.map { viewModel.filteredRecords[$0] }
+                                let gasRecordIndices = recordsToDelete.compactMap { record in
+                                    viewModel.gasRecords.firstIndex(where: { $0.id == record.id })
+                                }
+                                let gasRecordIndexSet = IndexSet(gasRecordIndices)
+                                viewModel.deleteRecord(at: gasRecordIndexSet)
                             }
                         }
                     }
@@ -79,9 +98,12 @@ struct GasRecordListView: View {
             }
             .navigationTitle(String(localized: "Fuel_Records"))
             .toolbar {
-                if !viewModel.gasRecords.isEmpty {
+                if !viewModel.filteredRecords.isEmpty {
                     EditButton()
                 }
+            }
+            .sheet(isPresented: $viewModel.isFirstLaunch) {
+                DefaultVehicleSetupView(viewModel: viewModel)
             }
         }
     }

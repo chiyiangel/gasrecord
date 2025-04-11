@@ -9,6 +9,15 @@ import SwiftUI
 
 struct GasRecordDetailView: View {
     let record: GasRecord
+    let viewModel: GasRecordViewModel
+    
+    var vehicleName: String {
+        if let vehicleId = record.vehicleId,
+           let vehicle = viewModel.vehicles.first(where: { $0.id == vehicleId }) {
+            return vehicle.name
+        }
+        return String(localized: "Unknown_Vehicle")
+    }
     
     var body: some View {
         ScrollView {
@@ -36,6 +45,22 @@ struct GasRecordDetailView: View {
                             .font(.system(size: 30))
                             .foregroundColor(Color("FuelBlue"))
                     }
+                }
+                .padding()
+                .background(Color(.systemBackground))
+                .cornerRadius(12)
+                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                
+                // Vehicle info
+                VStack(spacing: 15) {
+                    Text(String(localized: "Vehicle_Info"))
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Divider()
+                    
+                    DetailRow(title: String(localized: "Vehicle"), value: vehicleName, icon: "car.fill")
                 }
                 .padding()
                 .background(Color(.systemBackground))
@@ -118,6 +143,6 @@ struct DetailRow: View {
 
 #Preview {
     NavigationStack {
-        GasRecordDetailView(record: GasRecord.sampleRecords[0])
+        GasRecordDetailView(record: GasRecord.sampleRecords[0], viewModel: GasRecordViewModel())
     }
 }

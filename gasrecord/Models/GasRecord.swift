@@ -15,6 +15,7 @@ struct GasRecord: Identifiable, Codable {
     var totalCost: Double
     var odometer: Int
     var notes: String = ""
+    var vehicleId: UUID? // 关联的车辆ID
     
     var formattedDate: String {
         let formatter = DateFormatter()

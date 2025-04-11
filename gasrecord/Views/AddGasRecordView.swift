@@ -30,7 +30,7 @@ struct AddGasRecordView: View {
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        return formatter
+        return formatter;
     }()
     
     var body: some View {
@@ -63,6 +63,19 @@ struct AddGasRecordView: View {
                 }
                 
                 Section(header: Text(String(localized: "Basic_Info"))) {
+                    // 显示当前选中的车辆（不可更改）
+                    HStack {
+                        Text(String(localized: "Vehicle"))
+                        Spacer()
+                        HStack {
+                            Image(systemName: "car.fill")
+                                .foregroundColor(Color("FuelBlue"))
+                                .font(.caption)
+                            Text(viewModel.selectedVehicleName)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    
                     HStack {
                         Text(String(localized: "Fuel_Date"))
                         Spacer()
@@ -180,13 +193,21 @@ struct AddGasRecordView: View {
             return
         }
         
+        // 验证是否选择了车辆
+        if viewModel.selectedVehicleId == nil {
+            alertMessage = "请先选择一辆车"
+            showingAlert = true
+            return
+        }
+        
         let record = GasRecord(
             date: date,
             gallons: gallonsDouble,
             pricePerGallon: priceDouble,
             totalCost: totalDouble,
             odometer: odometerInt,
-            notes: notes
+            notes: notes,
+            vehicleId: viewModel.selectedVehicleId
         )
         
         viewModel.addRecord(record)

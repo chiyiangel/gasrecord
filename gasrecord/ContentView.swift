@@ -23,6 +23,13 @@ struct ContentView: View {
             .tabItem {
                 Label(String(localized: "Records"), systemImage: "list.bullet")
             }
+            
+            NavigationStack {
+                VehicleManagementView(viewModel: viewModel)
+            }
+            .tabItem {
+                Label(String(localized: "Vehicles"), systemImage: "car.fill")
+            }
         }
         .tint(.blue)
     }

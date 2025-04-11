@@ -1,6 +1,7 @@
 /* Tab Items */
 "Add_Fuel" = "Add Fuel";
 "Records" = "Records";
+"Vehicles" = "Vehicles";
 
 /* Empty State */
 "No_Fuel_Records" = "No fuel records";
@@ -50,3 +51,11 @@
 "Odometer" = "Odometer";
 "Notes" = "Notes";
 "Fuel_Record_Details" = "Fuel Record Details";
+
+/* Vehicle Management */
+"Vehicle" = "Vehicle";
+"Vehicle_Name" = "Vehicle Name";
+"Vehicle_Info" = "Vehicle Information";
+"All_Vehicles" = "All Vehicles";
+"Select_Vehicle" = "Select a Vehicle";
+"Unknown_Vehicle" = "Unknown Vehicle";
