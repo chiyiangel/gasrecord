@@ -21,6 +21,7 @@ struct AddGasRecordView: View {
     
     @State private var showingAlert = false
     @State private var alertMessage = ""
+    @State private var showingDatePicker = false
     
     enum Field: Hashable {
         case gallons, price, total, odometer, notes
@@ -62,7 +63,26 @@ struct AddGasRecordView: View {
                 }
                 
                 Section(header: Text(String(localized: "Basic_Info"))) {
-                    DatePicker(String(localized: "Fuel_Date"), selection: $date, displayedComponents: [.date, .hourAndMinute])
+                    HStack {
+                        Text(String(localized: "Fuel_Date"))
+                        Spacer()
+                        Button(action: {
+                            showingDatePicker.toggle()
+                        }) {
+                            Text(date.formatted(date: .abbreviated, time: .omitted))
+                        }
+                    }
+                    if showingDatePicker {
+                        DatePicker(
+                            "",
+                            selection: $date,
+                            displayedComponents: [.date]
+                        )
+                        .datePickerStyle(.graphical)
+                        .onChange(of: date) { oldValue, newValue in
+                            showingDatePicker = false
+                        }
+                    }
                     
                     LabeledContent(String(localized: "Odometer")) {
                         TextField(String(localized: "Kilometers"), text: $odometer)
