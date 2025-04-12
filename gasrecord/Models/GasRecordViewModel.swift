@@ -24,7 +24,9 @@ class GasRecordViewModel: ObservableObject {
     // 获取当前选中车辆的记录
     var filteredRecords: [GasRecord] {
         if let vehicleId = selectedVehicleId {
+            // 按照加油日期倒序排列（日期新的在前面）
             return gasRecords.filter { $0.vehicleId == vehicleId }
+                .sorted { $0.date > $1.date }
         } else {
             // 如果没有选择车辆，返回空列表而不是所有记录
             return []
