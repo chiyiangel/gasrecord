@@ -16,7 +16,7 @@ struct VehicleManagementView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(header: Text("添加车辆")) {
+                Section(header: Text(String(localized: "Add_Vehicle"))) {
                     HStack {
                         TextField(String(localized: "Vehicle_Name"), text: $newVehicleName)
                         Button(action: addVehicle) {
@@ -27,7 +27,7 @@ struct VehicleManagementView: View {
                     }
                 }
                 
-                Section(header: Text("已有车辆")) {
+                Section(header: Text(String(localized: "Existing_Vehicles"))) {
                     ForEach(viewModel.vehicles) { vehicle in
                         HStack {
                             Text(vehicle.name)
@@ -46,12 +46,12 @@ struct VehicleManagementView: View {
                     .onDelete(perform: confirmDeletion)
                 }
             }
-            .navigationTitle("车辆管理")
+            .navigationTitle(String(localized: "Vehicle"))
             .alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text("确认删除"),
-                    message: Text("删除车辆将同时删除该车辆的所有加油记录，确定要删除吗？"),
-                    primaryButton: .destructive(Text("删除")) {
+                    title: Text(String(localized: "Confirm_Delete")),
+                    message: Text(String(localized: "Delete_Vehicle_Confirmation")),
+                    primaryButton: .destructive(Text(String(localized: "Delete"))) {
                         if let indexSet = pendingDeletionIndexSet {
                             // 如果只有一辆车，不允许删除
                             if viewModel.vehicles.count <= 1 {
@@ -77,10 +77,10 @@ struct VehicleManagementView: View {
                     }
                 )
             }
-            .alert("无法删除", isPresented: $showAddAlert) {
-                Button("确定", role: .cancel) {}
+            .alert(String(localized: "Input_Error"), isPresented: $showAddAlert) {
+                Button(String(localized: "OK"), role: .cancel) {}
             } message: {
-                Text("必须至少保留一辆车。如需更换，请先添加新车辆。")
+                Text(String(localized: "Must_Keep_One_Vehicle"))
             }
             .sheet(isPresented: $viewModel.isFirstLaunch) {
                 DefaultVehicleSetupView(viewModel: viewModel)

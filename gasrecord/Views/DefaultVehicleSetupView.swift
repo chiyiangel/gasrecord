@@ -29,11 +29,11 @@ struct DefaultVehicleSetupView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    Text("欢迎使用加油记录")
+                    Text(String(localized: "Welcome_To_App"))
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("首次使用需要添加一辆默认车辆")
+                    Text(String(localized: "First_Time_Setup"))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
@@ -43,10 +43,10 @@ struct DefaultVehicleSetupView: View {
                 
                 // 车辆名称输入框
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("车辆名称")
+                    Text(String(localized: "Vehicle_Name"))
                         .font(.headline)
                     
-                    TextField("请输入车辆名称", text: $vehicleName)
+                    TextField(String(localized: "Vehicle_Name"), text: $vehicleName)
                         .padding()
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(8)
@@ -57,7 +57,7 @@ struct DefaultVehicleSetupView: View {
                 
                 // 确认按钮
                 Button(action: addDefaultVehicle) {
-                    Text("开始使用")
+                    Text(String(localized: "Start_Using"))
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -70,8 +70,8 @@ struct DefaultVehicleSetupView: View {
                 .padding(.bottom, 30)
             }
             .padding()
-            .alert("请输入车辆名称", isPresented: $showError) {
-                Button("确定", role: .cancel) {}
+            .alert(String(localized: "Vehicle_Name"), isPresented: $showError) {
+                Button(String(localized: "OK"), role: .cancel) {}
             }
             .interactiveDismissDisabled() // 禁止手势关闭
         }

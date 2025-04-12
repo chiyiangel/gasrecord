@@ -39,7 +39,7 @@ class GasRecordViewModel: ObservableObject {
            let vehicle = vehicles.first(where: { $0.id == vehicleId }) {
             return vehicle.name
         } else {
-            return "选择车辆"
+            return String(localized: "Select_Vehicle")
         }
     }
     
@@ -81,7 +81,7 @@ class GasRecordViewModel: ObservableObject {
         if let efficiency = averageFuelEfficiency {
             return String(format: "%.1f km/L", efficiency)
         } else {
-            return "暂无数据"
+            return String(localized: "No_Data")
         }
     }
     

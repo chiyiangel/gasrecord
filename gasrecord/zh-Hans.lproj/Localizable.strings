@@ -59,3 +59,27 @@
 "All_Vehicles" = "全部车辆";
 "Select_Vehicle" = "选择车辆";
 "Unknown_Vehicle" = "未知车辆";
+
+/* Default Vehicle Setup */
+"Welcome_To_App" = "欢迎使用加油记录";
+"First_Time_Setup" = "首次使用需要添加一辆默认车辆";
+"Start_Using" = "开始使用";
+
+/* Vehicle Management Additional */
+"Add_Vehicle" = "添加车辆";
+"Existing_Vehicles" = "已有车辆";
+"Confirm_Delete" = "确认删除";
+"Delete_Vehicle_Confirmation" = "删除车辆将同时删除该车辆的所有加油记录，确定要删除吗？";
+"Delete" = "删除";
+"Must_Keep_One_Vehicle" = "必须至少保留一辆车。如需更换，请先添加新车辆。";
+
+/* Vehicle Selection */
+"Current_Vehicle_For_Record" = "当前记录的车辆";
+"Select_Vehicle_Section" = "选择车辆";
+"Current_Vehicle_Being_Viewed" = "当前查看的车辆";
+
+/* Additional Strings */
+"No_Data" = "暂无数据";
+"Please_Select_Vehicle" = "请先选择一辆车";
+"Default_Vehicle_1" = "我的车";
+"Default_Vehicle_2" = "家用车";

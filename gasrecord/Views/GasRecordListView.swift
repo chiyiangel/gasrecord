@@ -16,7 +16,7 @@ struct GasRecordListView: View {
             VStack(spacing: 0) {
                 // 显示当前选择的车辆
                 VStack(spacing: 8) {
-                    Text("当前查看的车辆")
+                    Text(String(localized: "Current_Vehicle_Being_Viewed"))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     

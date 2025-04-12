@@ -33,7 +33,7 @@ struct LaunchScreen: View {
                             .foregroundColor(Color("FuelBlue"))
                     }
                     
-                    Text("加油记录")
+                    Text(String(localized: "Fuel_Records"))
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color("FuelBlue"))
@@ -46,7 +46,7 @@ struct LaunchScreen: View {
                         self.scale = 1.0
                     }
                     
-                    // 延迟2秒后跳转到主界面
+                    // Delay 2 seconds before transitioning to the main screen
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         withAnimation {
                             self.isActive = true

@@ -12,7 +12,7 @@ struct Vehicle: Identifiable, Codable {
     var name: String
     
     static var sampleVehicles: [Vehicle] = [
-        Vehicle(name: "我的车"),
-        Vehicle(name: "家用车")
+        Vehicle(name: String(localized: "Default_Vehicle_1")),
+        Vehicle(name: String(localized: "Default_Vehicle_2"))
     ]
 }

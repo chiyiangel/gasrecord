@@ -195,7 +195,7 @@ struct AddGasRecordView: View {
         
         // 验证是否选择了车辆
         if viewModel.selectedVehicleId == nil {
-            alertMessage = "请先选择一辆车"
+            alertMessage = String(localized: "Please_Select_Vehicle")
             showingAlert = true
             return
         }

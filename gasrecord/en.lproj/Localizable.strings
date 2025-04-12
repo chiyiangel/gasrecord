@@ -59,3 +59,27 @@
 "All_Vehicles" = "All Vehicles";
 "Select_Vehicle" = "Select a Vehicle";
 "Unknown_Vehicle" = "Unknown Vehicle";
+
+/* Default Vehicle Setup */
+"Welcome_To_App" = "Welcome to Fuel Records";
+"First_Time_Setup" = "You need to add a default vehicle for first use";
+"Start_Using" = "Start Using";
+
+/* Vehicle Management Additional */
+"Add_Vehicle" = "Add Vehicle";
+"Existing_Vehicles" = "Existing Vehicles";
+"Confirm_Delete" = "Confirm Delete";
+"Delete_Vehicle_Confirmation" = "Deleting a vehicle will also delete all fuel records for this vehicle. Are you sure?";
+"Delete" = "Delete";
+"Must_Keep_One_Vehicle" = "You must keep at least one vehicle. Please add a new vehicle first if you want to change.";
+
+/* Vehicle Selection */
+"Current_Vehicle_For_Record" = "Current Vehicle for Record";
+"Select_Vehicle_Section" = "Select Vehicle";
+"Current_Vehicle_Being_Viewed" = "Current Vehicle Being Viewed";
+
+/* Additional Strings */
+"No_Data" = "No Data";
+"Please_Select_Vehicle" = "Please select a vehicle first";
+"Default_Vehicle_1" = "My Car";
+"Default_Vehicle_2" = "Family Car";

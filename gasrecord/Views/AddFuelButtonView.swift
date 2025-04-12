@@ -15,7 +15,7 @@ struct AddFuelButtonView: View {
         VStack {
             // 车辆选择器
             VStack(spacing: 8) {
-                Text("当前记录的车辆")
+                Text(String(localized: "Current_Vehicle_For_Record"))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 
@@ -121,7 +121,7 @@ struct VehicleSelectionSheet: View {
                 if showAddVehicle {
                     Section {
                         HStack {
-                            TextField("请输入新车辆名称", text: $newVehicleName)
+                            TextField(String(localized: "Vehicle_Name"), text: $newVehicleName)
                             
                             Button(action: addNewVehicle) {
                                 Image(systemName: "checkmark.circle.fill")
@@ -137,7 +137,7 @@ struct VehicleSelectionSheet: View {
                     }
                 }
                 
-                Section(header: Text("选择车辆")) {
+                Section(header: Text(String(localized: "Select_Vehicle_Section"))) {
                     ForEach(viewModel.vehicles) { vehicle in
                         Button(action: {
                             viewModel.selectVehicle(vehicle.id)
@@ -159,11 +159,11 @@ struct VehicleSelectionSheet: View {
                     .onDelete(perform: deleteVehicle)
                 }
             }
-            .navigationTitle("车辆选择")
+            .navigationTitle(String(localized: "Select_Vehicle"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("取消") {
+                    Button(String(localized: "Cancel")) {
                         isPresented = false
                     }
                 }
