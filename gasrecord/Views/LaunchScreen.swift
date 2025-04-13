@@ -41,13 +41,13 @@ struct LaunchScreen: View {
                 .scaleEffect(scale)
                 .opacity(opacity)
                 .onAppear {
-                    withAnimation(.easeIn(duration: 1.2)) {
+                    withAnimation(.easeIn(duration: 0.8)) {
                         self.opacity = 1.0
                         self.scale = 1.0
                     }
                     
-                    // Delay 2 seconds before transitioning to the main screen
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    // Delay 1 second before transitioning to the main screen
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         withAnimation {
                             self.isActive = true
                         }
