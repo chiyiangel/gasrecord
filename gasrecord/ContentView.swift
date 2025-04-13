@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = GasRecordViewModel()
+    @State private var showBackupView = false
     
     var body: some View {
         TabView {
@@ -19,7 +20,16 @@ struct ContentView: View {
                 Label(String(localized: "Add_Fuel"), systemImage: "fuelpump")
             }
             
-            GasRecordListView(viewModel: viewModel)
+            NavigationStack {
+                GasRecordListView(viewModel: viewModel)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: { showBackupView = true }) {
+                                Image(systemName: "arrow.up.arrow.down.circle")
+                            }
+                        }
+                    }
+            }
             .tabItem {
                 Label(String(localized: "Records"), systemImage: "list.bullet")
             }
@@ -32,6 +42,9 @@ struct ContentView: View {
             }
         }
         .tint(Color("FuelBlue"))
+        .sheet(isPresented: $showBackupView) {
+            BackupView(viewModel: viewModel)
+        }
     }
 }
 

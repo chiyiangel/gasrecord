@@ -83,3 +83,22 @@
 "Please_Select_Vehicle" = "Please select a vehicle first";
 "Default_Vehicle_1" = "My Car";
 "Default_Vehicle_2" = "Family Car";
+
+/* Backup and Restore */
+"Backup_And_Restore" = "Backup & Restore";
+"Data_Summary" = "Data Summary";
+"Vehicles_Count" = "Vehicles";
+"Records_Count" = "Fuel Records";
+"Create_Backup" = "Create Backup";
+"Export_Data" = "Export Data";
+"Restore_Data" = "Restore Data";
+"Import_Data" = "Import Data";
+"Information" = "Information";
+"Backup_Info_Details" = "Backup creates a JSON file containing all your vehicles and fuel records. You can use this file to restore your data if you reinstall the app or switch to a new device.";
+"Import_Successful" = "Import Successful";
+"Import_Success_Message" = "Your data has been successfully restored from the backup file.";
+"Create_Vehicle_First" = "Please add at least one vehicle before creating a backup.";
+"Done" = "Done";
+
+/* First Launch Backup Option */
+"Restore_From_Backup" = "Restore from Backup";

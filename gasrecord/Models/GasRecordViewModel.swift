@@ -15,6 +15,11 @@ class GasRecordViewModel: ObservableObject {
     @Published var showAddRecordSheet: Bool = false
     @Published var showAddVehicleSheet: Bool = false
     @Published var isFirstLaunch: Bool = false
+    @Published var isBackupInProgress = false
+    @Published var backupError: String? = nil
+    @Published var importSuccess = false
+    @Published var importError: String? = nil
+    @Published var showImportSuccessAlert = false
     
     private let saveKey = "GasRecords"
     private let vehiclesSaveKey = "Vehicles"
@@ -218,6 +223,74 @@ class GasRecordViewModel: ObservableObject {
     private func saveSelectedVehicle() {
         if let vehicleId = selectedVehicleId {
             UserDefaults.standard.set(vehicleId.uuidString, forKey: selectedVehicleKey)
+        }
+    }
+    
+    // 备份与恢复相关的方法
+    func createBackup() -> DataBackup {
+        DataBackup(
+            records: gasRecords,
+            vehicles: vehicles,
+            selectedVehicleId: selectedVehicleId
+        )
+    }
+
+    // 导出备份到文件
+    func exportBackup() -> URL? {
+        isBackupInProgress = true
+        backupError = nil
+        
+        let backup = createBackup()
+        
+        do {
+            // 编码数据为JSON
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let backupData = try encoder.encode(backup)
+            
+            // 创建临时目录用于备份文件
+            let temporaryDirectoryURL = FileManager.default.temporaryDirectory
+            let backupFileURL = temporaryDirectoryURL.appendingPathComponent(DataBackup.defaultBackupFileName())
+            
+            // 写入数据到文件
+            try backupData.write(to: backupFileURL)
+            isBackupInProgress = false
+            
+            return backupFileURL
+        } catch {
+            backupError = error.localizedDescription
+            isBackupInProgress = false
+            return nil
+        }
+    }
+
+    // 从URL导入备份
+    func importBackup(from url: URL) {
+        importError = nil
+        
+        do {
+            // 读取文件数据
+            let backupData = try Data(contentsOf: url)
+            
+            // 解码JSON
+            let decoder = JSONDecoder()
+            let backup = try decoder.decode(DataBackup.self, from: backupData)
+            
+            // 使用备份数据更新所有内容
+            self.gasRecords = backup.records
+            self.vehicles = backup.vehicles
+            self.selectedVehicleId = backup.selectedVehicleId
+            
+            // 保存导入的数据
+            saveRecords()
+            saveVehicles()
+            saveSelectedVehicle()
+            
+            importSuccess = true
+            showImportSuccessAlert = true
+        } catch {
+            importError = error.localizedDescription
+            importSuccess = false
         }
     }
 }
