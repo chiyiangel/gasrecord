@@ -97,11 +97,11 @@ struct GasRecordListView: View {
                 }
             }
             .navigationTitle(String(localized: "Fuel_Records"))
-            .toolbar {
-                if !viewModel.filteredRecords.isEmpty {
-                    EditButton()
-                }
-            }
+            // .toolbar {
+            //     if !viewModel.filteredRecords.isEmpty {
+            //         EditButton()
+            //     }
+            // }
             .sheet(isPresented: $viewModel.isFirstLaunch) {
                 DefaultVehicleSetupView(viewModel: viewModel)
             }

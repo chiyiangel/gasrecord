@@ -83,3 +83,22 @@
 "Please_Select_Vehicle" = "请先选择一辆车";
 "Default_Vehicle_1" = "我的车";
 "Default_Vehicle_2" = "家用车";
+
+/* Backup and Restore */
+"Backup_And_Restore" = "备份与恢复";
+"Data_Summary" = "数据摘要";
+"Vehicles_Count" = "车辆数量";
+"Records_Count" = "加油记录";
+"Create_Backup" = "创建备份";
+"Export_Data" = "导出数据";
+"Restore_Data" = "恢复数据";
+"Import_Data" = "导入数据";
+"Information" = "信息";
+"Backup_Info_Details" = "备份将创建一个包含所有车辆和加油记录的JSON文件。如果重新安装应用或更换设备，您可以使用此文件恢复数据。";
+"Import_Successful" = "导入成功";
+"Import_Success_Message" = "已从备份文件成功恢复数据。";
+"Create_Vehicle_First" = "创建备份前请至少添加一辆车辆。";
+"Done" = "完成";
+
+/* First Launch Backup Option */
+"Restore_From_Backup" = "从备份中恢复数据";
