@@ -31,7 +31,7 @@ struct ContentView: View {
                 Label(String(localized: "Vehicles"), systemImage: "car.fill")
             }
         }
-        .tint(.blue)
+        .tint(Color("FuelBlue"))
     }
 }
 
