@@ -21,7 +21,7 @@ struct VehicleManagementView: View {
                         TextField(String(localized: "Vehicle_Name"), text: $newVehicleName)
                         Button(action: addVehicle) {
                             Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color("FuelBlue"))
                         }
                         .disabled(newVehicleName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                     }
@@ -34,7 +34,7 @@ struct VehicleManagementView: View {
                             Spacer()
                             if viewModel.selectedVehicleId == vehicle.id {
                                 Image(systemName: "checkmark")
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(Color("FuelBlue"))
                             }
                         }
                         .contentShape(Rectangle())

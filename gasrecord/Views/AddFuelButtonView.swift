@@ -90,6 +90,7 @@ struct VehiclePickerView: View {
                 
                 Text(viewModel.selectedVehicleName)
                     .fontWeight(.medium)
+                    .foregroundColor(Color("FuelBlue"))
                 
                 Spacer()
                 
